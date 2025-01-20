@@ -8,7 +8,7 @@ from langchain_core.prompts import PromptTemplate
 
 class Chain:
     def __init__(self):
-        self.llm = ChatGroq(temperature=0, groq_api_key="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", model_name="llama-3.1-70b-versatile")
+        self.llm = ChatGroq(temperature=0, groq_api_key="your_api_key", model_name="llama-3.1-70b-versatile")
 
     def summarize_text(self, full_text):
     # Create a prompt template for summarization
@@ -121,4 +121,4 @@ class Chain:
         return anomalies
     
 if __name__ == "__main__":
-    print("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")
+    print("your_api_key")
