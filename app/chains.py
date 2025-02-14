@@ -11,7 +11,6 @@ class Chain:
         self.llm = ChatGroq(temperature=0, groq_api_key="your_api_key", model_name="llama-3.1-70b-versatile")
 
     def summarize_text(self, full_text):
-    # Create a prompt template for summarization
         prompt_summarize = PromptTemplate.from_template(
         """
         ### FULL TEXT:
@@ -21,18 +20,18 @@ class Chain:
         """
         )
     
-    # Chain the prompt with the language model
+    
         chain_summarize = prompt_summarize | self.llm
     
-    # Invoke the chain with the provided text
+    
         res = chain_summarize.invoke(input={"document_text": full_text})
     
-    # Handle the output
+    
         try:
-        # Assuming the response from the language model is directly usable
+        
             summary = res.content.strip()  # Stripping any extra whitespace
         except Exception as e:
-        # You might want to handle specific exceptions based on your environment
+        
              raise Exception("Failed to summarize the text: {}".format(str(e)))
     
         return summary
@@ -73,7 +72,7 @@ class Chain:
         "target_language": target_language
     })
         try:
-        # Assuming the response from the language model is directly usable
+        
             translated_text = res.content.strip()
         except Exception as e:
             raise Exception("Failed to translate text: {}".format(str(e)))
